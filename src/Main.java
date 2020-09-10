@@ -1,30 +1,29 @@
 import javax.sound.midi.*;
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicOptionPaneUI;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class Main {
-    JPanel mainPanel;
-    ArrayList<JCheckBox> checkBoxArrayList;
-    Sequencer sequencer;
-    Sequence sequence;
-    Track track;
-    JFrame frame;
+    private JPanel mainPanel;
+    private ArrayList<JCheckBox> checkBoxArrayList;
+    private Sequencer sequencer;
+    private Sequence sequence;
+    private Track track;
+    private JFrame frame;
 
-    String[] instrumentNames = {"Bass Drum", "Closed Hi-Hat", "Open Hi-Hat",
+    private String[] instrumentNames = {"Bass Drum", "Closed Hi-Hat", "Open Hi-Hat",
     "Acoustic Snare", "Crash Cymbal", "Hand Clap", "High Tom", "Hi Bongo",
     "Maracas", "Whistle", "Low Conga", "Cowbell", "Vibraslap", "Low-mic Tom",
     "High Agogo", "Open Hi Conga"};
-    int[] instruments = {35, 42, 46, 38, 49, 39, 50, 60, 70, 72, 64, 56, 58, 47, 67, 63};
+    private int[] instruments = {35, 42, 46, 38, 49, 39, 50, 60, 70, 72, 64, 56, 58, 47, 67, 63};
 
     public static void main(String[] args) {
         new Main().buildGUI();
     }
 
-    public void buildGUI() {
+    private void buildGUI() {
         frame = new JFrame("BeatBox");
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         BorderLayout layout = new BorderLayout();
@@ -48,7 +47,7 @@ public class Main {
 
         JButton downTempo = new JButton("Tempo Down");
         upTempo.addActionListener(new MyDownTempoListener());
-        buttonBox.add(upTempo);
+        buttonBox.add(downTempo);
 
         Box nameBox = new Box(BoxLayout.Y_AXIS);
         for (int i = 0; i < 16; i++) {
@@ -80,7 +79,7 @@ public class Main {
         frame.setVisible(true);
     }
 
-    public void setUpMidi() {
+    private void setUpMidi() {
         try {
             sequencer = MidiSystem.getSequencer();
             sequencer.open();
@@ -92,7 +91,7 @@ public class Main {
         }
     }
 
-    public void buildTrackAndStart() {
+    private void buildTrackAndStart() {
         int[] trackList;
 
         sequence.deleteTrack(track);
@@ -157,7 +156,7 @@ public class Main {
         }
     }
 
-    public void makeTracks(int[] list) {
+    private void makeTracks(int[] list) {
         for (int i = 0; i < 16; i++) {
             int key = list[i];
 
@@ -168,7 +167,7 @@ public class Main {
         }
     }
 
-    public MidiEvent makeEvent(int comd, int chan, int one, int two, int tick) {
+    private MidiEvent makeEvent(int comd, int chan, int one, int two, int tick) {
         MidiEvent event = null;
         try {
             ShortMessage a = new ShortMessage();
@@ -182,24 +181,3 @@ public class Main {
     }
 
 }
-
-//import javax.sound.midi.*;
-
-//public class Main {
-//
-//
-//    public static void main(String[] args) throws InvalidMidiDataException, MidiUnavailableException {
-//
-//        Sequence melody = new Sequence(Sequence.PPQ, 10);
-//        javax.sound.midi.Track track = melody.createTrack();
-//        ShortMessage msg = new ShortMessage();
-//        msg.setMessage(ShortMessage.NOTE_ON, 60, 93);
-//        MidiEvent midEvent = new MidiEvent(msg, 5);
-//        track.add(midEvent);
-//        Sequencer sequencer = MidiSystem.getSequencer();
-//        sequencer.open();
-//        sequencer.setSequence(melody);
-//        sequencer.start();
-////        sequencer.close();
-//    }
-//}
