@@ -53,6 +53,10 @@ public class Main {
         cleanAll.addActionListener(new MyCleanListener());
         buttonBox.add(cleanAll);
 
+        JButton setAll = new JButton("Set All");
+        setAll.addActionListener(new MySetAllListener());
+        buttonBox.add(setAll);
+
         Box nameBox = new Box(BoxLayout.Y_AXIS);
         for (int i = 0; i < 16; i++) {
             nameBox.add(new Label(instrumentNames[i]));
@@ -166,6 +170,15 @@ public class Main {
             for (JCheckBox jCheckBox : checkBoxArrayList) {
                 jCheckBox.setSelected(false);
                 sequencer.stop();
+            }
+        }
+    }
+
+    public class MySetAllListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            for (JCheckBox checkbox : checkBoxArrayList) {
+                checkbox.setSelected(true);
             }
         }
     }
