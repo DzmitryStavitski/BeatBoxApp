@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="76008e6d-d914-49b2-834d-0f8aaa7bd482" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BeatBox/Main$MyDownTempoListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BeatBox/Main$MyDownTempoListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BeatBox/Main$MyStartListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BeatBox/Main$MyStartListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BeatBox/Main$MyStopListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BeatBox/Main$MyStopListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BeatBox/Main$MyUpTempoListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BeatBox/Main$MyUpTempoListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BeatBox/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BeatBox/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,7 +76,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

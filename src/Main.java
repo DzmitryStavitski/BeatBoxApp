@@ -49,6 +49,10 @@ public class Main {
         upTempo.addActionListener(new MyDownTempoListener());
         buttonBox.add(downTempo);
 
+        JButton cleanAll = new JButton("Clean All");
+        cleanAll.addActionListener(new MyCleanListener());
+        buttonBox.add(cleanAll);
+
         Box nameBox = new Box(BoxLayout.Y_AXIS);
         for (int i = 0; i < 16; i++) {
             nameBox.add(new Label(instrumentNames[i]));
@@ -156,6 +160,16 @@ public class Main {
         }
     }
 
+    public class MyCleanListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            for (JCheckBox jCheckBox : checkBoxArrayList) {
+                jCheckBox.setSelected(false);
+                sequencer.stop();
+            }
+        }
+    }
+
     private void makeTracks(int[] list) {
         for (int i = 0; i < 16; i++) {
             int key = list[i];
@@ -179,5 +193,4 @@ public class Main {
 
         return event;
     }
-
 }
